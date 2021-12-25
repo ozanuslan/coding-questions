@@ -12,3 +12,9 @@ object Solution {
         })
     }
 }
+object Solution {
+    def findDisappearedNumbers(nums: Array[Int]): List[Int] = {
+        val dist = (1 until nums.length + 1)
+        (dist.toSet -- nums.toSet).toList
+    }
+}
