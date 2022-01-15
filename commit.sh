@@ -10,7 +10,8 @@
 
 # check if the number of arguments is correct
 if [ $# -ne 3 ]; then
-    echo "Usage: $0 <folder> <filename> <string>"
+    echo "Usage: $0 <folder> <filename> <code_string>"
+    echo "Important! Use single quotes while passing the code string"
     exit 1
 fi
 
@@ -33,3 +34,4 @@ git add "$1/$2"
 git commit -m "$file_wo_extension"
 
 exit 0
+
