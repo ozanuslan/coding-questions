@@ -18,4 +18,25 @@ class SubrectangleQueries(_rectangle: Array[Array[Int]]) {
  * var obj = new SubrectangleQueries(rectangle)
  * obj.updateSubrectangle(row1,col1,row2,col2,newValue)
  * var param_2 = obj.getValue(row,col)
+ */class SubrectangleQueries(_rectangle: Array[Array[Int]]) {
+    
+    def updateSubrectangle(row1: Int, col1: Int, row2: Int, col2: Int, newValue: Int) {
+        for(i <- row1 to row2) {
+            for(j <- col1 to col2) {
+                _rectangle(i)(j) = newValue
+            }
+        }
+    }
+
+    def getValue(row: Int, col: Int): Int = {
+        _rectangle(row)(col)
+    }
+
+}
+
+/**
+ * Your SubrectangleQueries object will be instantiated and called as such:
+ * var obj = new SubrectangleQueries(rectangle)
+ * obj.updateSubrectangle(row1,col1,row2,col2,newValue)
+ * var param_2 = obj.getValue(row,col)
  */
