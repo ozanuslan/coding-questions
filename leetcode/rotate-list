@@ -1,0 +1,45 @@
+/**
+ * Definition for singly-linked list.
+ * class ListNode(_x: Int = 0, _next: ListNode = null) {
+ *   var next: ListNode = _next
+ *   var x: Int = _x
+ * }
+ */
+object Solution {
+    def rotateRight(head: ListNode, k: Int): ListNode = {
+        val listLength = getListLength(head)
+        if(listLength == 0) return null
+        
+        val rotateBy = k % listLength
+        if(rotateBy == 0) return head
+        
+        var fast = head
+        for(i <- 0 until rotateBy) fast = fast.next
+        
+        var newHead = head
+        var slow = head
+        while(slow != null) {
+            if(fast.next == null) {
+                fast.next = head
+                newHead = slow.next
+                slow.next = null
+                slow = slow.next
+            } else {
+                fast = fast.next
+                slow = slow.next
+            }
+        }
+        
+        newHead
+    }
+    
+    def getListLength(head: ListNode): Int = {
+        var temp = head
+        var len = 0
+        while(temp != null) {
+            temp = temp.next
+            len += 1
+        }
+        len
+    }
+}
