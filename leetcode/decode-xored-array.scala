@@ -8,3 +8,14 @@ object Solution {
         res
     }
 }
+
+object Solution {
+    def decode(encoded: Array[Int], first: Int): Array[Int] = {
+        encoded
+        .indices
+        .foldLeft(Array[Int](first))(
+            (acc, i) => acc :+ (encoded(i)^acc(i))
+        )
+    }
+}
+
